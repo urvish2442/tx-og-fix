@@ -40,12 +40,12 @@ function MyApp({ Component, pageProps }) {
         url: `${FRONT_END_DOMAIN}`,
     };
 
-    // const {
-    //     url: ogUrl = defaultOgData.url,
-    //     title: ogTitle = defaultOgData.title,
-    //     description: ogDescription = defaultOgData.description,
-    //     imgUrl: ogImgUrl = defaultOgData.imgUrl,
-    // } = pageProps?.ogData || {};
+    const {
+        url: ogUrl = defaultOgData.url,
+        title: ogTitle = defaultOgData.title,
+        description: ogDescription = defaultOgData.description,
+        imgUrl: ogImgUrl = defaultOgData.imgUrl,
+    } = pageProps?.ogData || {};
     return (
         <>
             {/* {ogData && ( */}
@@ -62,24 +62,18 @@ function MyApp({ Component, pageProps }) {
                 <meta content="text/html; charset=UTF-8" name="Content-Type" />
 
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content={defaultOgData.url} />
-                <meta property="og:title" content={defaultOgData?.title} />
-                <meta
-                    property="og:description"
-                    content={defaultOgData?.description}
-                />
-                <meta property="og:image" content={defaultOgData?.imgUrl} />
+                <meta property="og:url" content={ogUrl} />
+                <meta property="og:title" content={ogTitle} />
+                <meta property="og:description" content={ogDescription} />
+                <meta property="og:image" content={ogImgUrl} />
                 <meta property="og:image:width" content="600" />
                 <meta property="og:image:height" content="315" />
 
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta property="twitter:url" content={defaultOgData.url} />
-                <meta property="twitter:title" content={defaultOgData.title} />
-                <meta
-                    property="twitter:description"
-                    content={defaultOgData.description}
-                />
-                <meta property="twitter:image" content={defaultOgData.imgUrl} />
+                <meta property="twitter:url" content={ogUrl} />
+                <meta property="twitter:title" content={ogTitle} />
+                <meta property="twitter:description" content={ogDescription} />
+                <meta property="twitter:image" content={ogImgUrl} />
             </Head>
             {/* )} */}
             <WalletProvider>
