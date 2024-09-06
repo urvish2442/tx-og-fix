@@ -6,7 +6,7 @@ export const CHAIN_LOGO = {
     8453: "/images/base-icon.svg",
 };
 
-export const FRONT_END_DOMAIN = "https://tesseractx.com";
+export const FRONT_END_DOMAIN = "https://tx-og-fix.vercel.app";
 
 export const GET_CHAIN_NAMES = {
     369: "PulseChain",

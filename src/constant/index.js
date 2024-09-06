@@ -387,7 +387,7 @@ export const FAL_IMAGES_DIMENTIONS = [
     },
 ];
 
-export const FRONT_END_DOMAIN = "https://tesseractx.com";
+export const FRONT_END_DOMAIN = "https://tx-og-fix.vercel.app";
 // export const FRONT_END_DOMAIN = "https://dev.tesseractx.com";
 
 export const coinbase = createWallet("com.coinbase.wallet");
