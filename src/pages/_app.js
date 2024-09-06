@@ -45,7 +45,7 @@ function MyApp({ Component, pageProps }) {
         title: ogTitle = defaultOgData.title,
         description: ogDescription = defaultOgData.description,
         imgUrl: ogImgUrl = defaultOgData.imgUrl,
-    } = pageProps?.ogData || {};
+    } = defaultOgData || {};
     return (
         <>
             {/* {ogData && ( */}
