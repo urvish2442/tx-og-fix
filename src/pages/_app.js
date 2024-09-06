@@ -32,20 +32,21 @@ function MyApp({ Component, pageProps }) {
     //     }
     // }, []);
 
-    // const defaultOgData = {
-    //     title: "TesseractX",
-    //     description:
-    //         "TesseractX is the ultimate rewarding, multi-chain, community-centric digital collectibles marketplace.",
-    //     imgUrl: `${FRONT_END_DOMAIN}/staticOgImages/GeneralCard.png`,
-    //     url: `${FRONT_END_DOMAIN}`,
-    // };
+    const defaultOgData = {
+        title: "TesseractX",
+        description:
+            "TesseractX is the ultimate rewarding, multi-chain, community-centric digital collectibles marketplace.",
+        imgUrl: `${FRONT_END_DOMAIN}/staticOgImages/GeneralCard.png`,
+        url: `${FRONT_END_DOMAIN}`,
+    };
 
-    // const {
-    //     url: ogUrl = defaultOgData.url,
-    //     title: ogTitle = defaultOgData.title,
-    //     description: ogDescription = defaultOgData.description,
-    //     imgUrl: ogImgUrl = defaultOgData.imgUrl,
-    // } = pageProps?.ogData || {};
+
+    const {
+        url: ogUrl = defaultOgData.url,
+        title: ogTitle = defaultOgData.title,
+        description: ogDescription = defaultOgData.description,
+        imgUrl: ogImgUrl = defaultOgData.imgUrl,
+    } = pageProps?.ogData || {};
     return (
         <>
             {/* {ogData && ( */}
@@ -61,8 +62,8 @@ function MyApp({ Component, pageProps }) {
                 />
                 <meta content="text/html; charset=UTF-8" name="Content-Type" />
 
-                {/* <meta property="og:type" content="website" /> */}
-                {/* <meta property="og:url" content={ogUrl} />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={ogUrl} />
                 <meta property="og:title" content={ogTitle} />
                 <meta property="og:description" content={ogDescription} />
                 <meta property="og:image" content={ogImgUrl} />
@@ -73,7 +74,7 @@ function MyApp({ Component, pageProps }) {
                 <meta property="twitter:url" content={ogUrl} />
                 <meta property="twitter:title" content={ogTitle} />
                 <meta property="twitter:description" content={ogDescription} />
-                <meta property="twitter:image" content={ogImgUrl} /> */}
+                <meta property="twitter:image" content={ogImgUrl} />
             </Head>
             {/* )} */}
             <WalletProvider>
@@ -95,9 +96,9 @@ function MyApp({ Component, pageProps }) {
     );
 }
 
-// MyApp.getInitialProps = async (appContext) => {
-//     const appProps = await App.getInitialProps(appContext);
-//     return { ...appProps };
-// };
+MyApp.getInitialProps = async (appContext) => {
+    const appProps = await App.getInitialProps(appContext);
+    return { ...appProps };
+};
 
 export default MyApp;
