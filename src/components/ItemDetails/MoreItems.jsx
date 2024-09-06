@@ -45,8 +45,7 @@ const MoreItems = () => {
                 <h2>More From This Collection</h2>
                 <Link
                     href={PATH_DASHBOARD.explore.collection(
-                        items[0]?.itemCollection,
-                        items[0]?.chainId
+                        items[0]?.itemCollection, items[0]?.chainId
                     )}
                     className="group hover:translate-x-[-3px] transition-all ease-in"
                 >
@@ -93,7 +92,8 @@ const MoreItems = () => {
                                         <img
                                             src={
                                                 item?.collectionImage ||
-                                                item?.collectionLogo
+                                                item?.collectionLogo ||
+                                                "/images/collection-img.png"
                                             }
                                             alt=""
                                         ></img>
@@ -103,7 +103,7 @@ const MoreItems = () => {
 
                                 <div className="product-img-time product-img-time-big pointer">
                                     <ImageLoader
-                                        src={item?.animation_url || item?.image}
+                                        src={item?.image}
                                         alt=""
                                         thumbnail={item?.thumbnail}
                                     />
@@ -234,8 +234,7 @@ const MoreItems = () => {
                 <div className="common-title-block mobile-view-block">
                     <Link
                         href={PATH_DASHBOARD.explore.collection(
-                            items[0]?.collectionAddress,
-                            items[0]?.chainId
+                            items[0]?.collectionAddress, items[0]?.chainId
                         )}
                     >
                         <span>Explore</span>

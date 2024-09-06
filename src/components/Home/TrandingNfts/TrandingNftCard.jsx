@@ -77,7 +77,13 @@ const TrandingNftCard = ({ item, handleLike, handleOpen }) => {
                 <div className="common-product-block-inner-width !rounded-[22px]">
                     <div className="top-block-product-new">
                         <div className="top-block-product-img-new">
-                            <img src={item?.collectionLogo} alt=""></img>
+                            <img
+                                src={
+                                    item?.collectionLogo ||
+                                    "/images/collection-img.png"
+                                }
+                                alt=""
+                            ></img>
                         </div>
                         <h4>{item?.collectionName || ""}</h4>
                     </div>
@@ -86,7 +92,10 @@ const TrandingNftCard = ({ item, handleLike, handleOpen }) => {
                             <h4>{item?.name}</h4>
                             <div className="product-details-profile-new-price">
                                 <img
-                                    src={CHAIN_LOGO[item?.chainId]}
+                                    src={
+                                        CHAIN_LOGO[item?.chainId] ||
+                                        "../../images/ethe-icon-blue.svg"
+                                    }
                                     alt="ethe-icon"
                                 ></img>
                                 <div className="product-details-profile-new-price-text">
@@ -120,7 +129,11 @@ const TrandingNftCard = ({ item, handleLike, handleOpen }) => {
                                 alt=""
                             ></img> */}
                         <ImageLoader
-                            src={item?.image || item?.thumbnail}
+                            src={
+                                item?.image ||
+                                item?.thumbnail ||
+                                "../../images/nft-img-trending.png"
+                            }
                             alt=""
                             thumbnail={item?.thumbnail}
                         />

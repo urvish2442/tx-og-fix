@@ -39,8 +39,7 @@ const ItemCard = ({ item, handleLike = () => {} }) => {
     const handleCollectionRoute = () => {
         router.push({
             pathname: PATH_DASHBOARD.explore.collection(
-                item?.collectionAddress,
-                item?.chainId
+                item?.collectionAddress, item?.chainId
             ),
         });
     };
@@ -57,7 +56,11 @@ const ItemCard = ({ item, handleLike = () => {} }) => {
                 <div className="top-block-product-new">
                     <div className="top-block-product-img-new">
                         <img
-                            src={item?.collectionImage || item?.collectionLogo}
+                            src={
+                                item?.collectionImage ||
+                                item?.collectionLogo ||
+                                "/images/collection-img.png"
+                            }
                             alt=""
                         ></img>
                     </div>
@@ -66,7 +69,7 @@ const ItemCard = ({ item, handleLike = () => {} }) => {
 
                 <div className="product-img-time product-img-time-big pointer">
                     <ImageLoader
-                        src={item?.animation_url || item?.image}
+                        src={item?.image}
                         alt=""
                         thumbnail={item?.thumbnail}
                     />

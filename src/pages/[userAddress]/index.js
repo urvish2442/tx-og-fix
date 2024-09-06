@@ -67,7 +67,7 @@ export async function getServerSideProps(context) {
     return {
         props: {
             ogData: {
-                url: `${FRONT_END_DOMAIN}/${userAddress}`,
+                url: `${FRONT_END_DOMAIN}/@${userAddress}`,
                 imgUrl: ogImageUrl,
                 title: userName,
                 description: description,

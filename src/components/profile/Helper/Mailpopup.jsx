@@ -12,9 +12,10 @@ import { Modal, Spinner } from "react-bootstrap";
 import { useEditUser } from "@/hooks/useProfileHook";
 import { useSelector } from "react-redux";
 const Mailpopup = ({ isOpen, onRequestClose, trigger, content }) => {
-  const { updateNotificationEmail } = useEditUser();
+  const { setNotificationInfo } = useEditUser();
   const { userDetails, loading } = useSelector(globalState) || {};
   const [email, setEmail] = useState("");
+  const [EnableLoading,setEnableLoading] = useState(false)
 
   useEffect(() => {
     if (userDetails) {
@@ -29,19 +30,20 @@ const Mailpopup = ({ isOpen, onRequestClose, trigger, content }) => {
   };
 
   const handleSubmit = async () => {
-    // Check if the email format is valid using regular expressions
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      // If the email format is not valid, display an error message or take appropriate action
       toast.error('Invalid email format');
-      return; // Exit the function if the email format is not valid
+      return; 
     }
   
-    // If the email format is valid, proceed with submitting the email for updates
-    console.log(email, "email");
-    await updateNotificationEmail(email, "enabled");
+    const data ={
+      email
+    }
+    setEnableLoading(true)
+    await setNotificationInfo(data);
+    setEnableLoading(false)
     console.log("Email submitted:", email);
-    // You can add further logic to submit the email to your backend for updates
   }
 
 
@@ -74,8 +76,8 @@ const Mailpopup = ({ isOpen, onRequestClose, trigger, content }) => {
               gap: "10px",
             }}
           >
-            <Button disabled={loading} onClick={handleSubmit}>
-              {userDetails?.emailEnabled ? "Update" : "Subscribe"}
+            <Button disabled={loading || EnableLoading} onClick={handleSubmit}>
+              {userDetails?.email!="" ? "Update" : "Subscribe"}
             </Button>
           </div>
         </div>

@@ -34,7 +34,7 @@ export default function HomeMainComponent() {
           <title>TesseractX</title>
           <meta
             name='description'
-            content='TesseractX is the ultimate rewarding, multi-chain, community-centric digital collectibles marketplace!'
+            content='TesseractX is the ultimate rewarding, multi-chain, community-centric digital collectibles marketplace'
           />
           <meta name='viewport' content='width=device-width, initial-scale=1' />
         </Head>

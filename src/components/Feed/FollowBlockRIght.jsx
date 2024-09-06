@@ -167,7 +167,10 @@ const FollowBlockRIght = () => {
                                     }
                                 >
                                     <img
-                                        src={item?.userLogo}
+                                        src={
+                                            item?.userLogo ||
+                                            "../../images/profile-img-product.png"
+                                        }
                                         alt="img"
                                         className="rounded-circle"
                                     ></img>

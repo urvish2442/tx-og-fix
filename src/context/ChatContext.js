@@ -19,7 +19,6 @@ import {
 } from "@/redux/services/chatService";
 import { io } from "socket.io-client";
 import { usePreviousRoute } from "@/hooks/usePreviousRoute";
-
 const STATE = {
     STOPLOADING: "STOPLOADING",
     STARTLOADING: "STARTLOADING",
@@ -318,7 +317,7 @@ export const ChatProvider = ({ children }) => {
 
     const [socket, setSocket] = useState();
 
-    const parts = process.env.SOCKET_URL.split("/");
+    const parts = process.env.API_URL.split("/");
     const baseUrl = parts.slice(0, 3).join("/");
 
     useEffect(() => {
@@ -444,7 +443,6 @@ export const ChatProvider = ({ children }) => {
                 });
             });
             socket.on("getMessage", (message) => {
-                console.log("🚀 ~ socket.on ~ message:", message);
                 dispatch({
                     type: STATE.SETSOCKETMESSAGES,
                     payload: message?.newMessage,

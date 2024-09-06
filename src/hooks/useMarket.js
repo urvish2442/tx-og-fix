@@ -29,7 +29,7 @@ const MARKETPLACES_DATA = {
         fee: OPENSEA_LISTING_FEE,
         amount: 0,
         image: "/images/listing-block-logo-6.svg",
-        supportedChains: [1, 8453],
+        supportedChains: [1, 8453, 11155111, 84531, 84532],
     },
 };
 

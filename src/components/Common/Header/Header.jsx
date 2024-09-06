@@ -23,12 +23,11 @@ import { useRouter } from "next/router";
 import DesktopMenu from "./DesktopMeni";
 
 import { ConnectButton, lightTheme } from "thirdweb/react";
-import { SUPPORTED_CHAINS, client, pulse } from "@/constant/walletPrefrences";
+import { SUPPORTED_CHAINS, client, pulsev4 } from "@/constant/walletPrefrences";
 import { FRONT_END_DOMAIN, coinbase, wallets } from "@/constant";
 import RewardButtonHeader from "./RewardButtonHeader";
 import { useTheme } from "next-themes";
 import useScreenSize from "@/hooks/useScreenSize";
-import { base } from "thirdweb/chains";
 
 const Header = () => {
     const router = useRouter();
@@ -659,7 +658,7 @@ const Header = () => {
                                         recommendedWallets={[coinbase]}
                                         client={client}
                                         wallets={wallets}
-                                        // chain={base}
+                                        chain={pulsev4}
                                         chains={SUPPORTED_CHAINS}
                                         showAllWallets={false}
                                         theme={lightTheme({

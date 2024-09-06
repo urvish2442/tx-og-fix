@@ -17,7 +17,7 @@ export default function PageTitle({
     //     window.document.title = `${BASE_TITLE} - ${title}`;
     // }, []);
     const imageURL = `${FRONT_END_DOMAIN}/api/og/general`;
-    const newTitle = `${title} | ${BASE_TITLE}`
+    const newTitle = `${title} | ${BASE_TITLE}`;
 
     return (
         <Head>

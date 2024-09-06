@@ -9,7 +9,9 @@ import {
     addUserFCMkeys,
     updateNotificationPreference,
     UpdateEmail,
-    deleteUserAction,
+    updateNotificationInfo,
+    deleteUserAction
+
 } from "@/redux/actions/globalAction";
 import {
     globalState,
@@ -267,6 +269,11 @@ export const useEditUser = () => {
         return data;
     };
 
+    const  setNotificationInfo = async (info) => {
+        const data = await dispatch(updateNotificationInfo({ info, signMessage }));
+        return data;
+    };
+
     const updateNotification = async (mainObj, dataObj) => {
         dispatch(
             updateNotificationPreference({
@@ -277,20 +284,10 @@ export const useEditUser = () => {
         );
     };
 
-    const updateNotificationEmail = async (email, type) => {
-        dispatch(
-            UpdateEmail({
-                signMessage,
-                email,
-                type,
-            })
-        );
-    };
 
     return {
         formik,
         addFCM,
-        updateNotificationEmail,
         updateNotification,
         nameLoading,
         unique,
@@ -300,6 +297,7 @@ export const useEditUser = () => {
         handleFileChange,
         // handleCheckBox,
         handleRadioChange,
+        setNotificationInfo
     };
 };
 

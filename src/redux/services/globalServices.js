@@ -141,17 +141,12 @@ export const getPublicCollectionService = async (params) => {
 export const addNotificationPreference = async (params) => {
     return await Axios.post(`user/user_addNotificationPreference`, params);
 };
+export const addNotificationInfo = async ( params) => {
+    return await Axios.post(`user/update_preference`, params);
+};
 
 export const addFCMkeys = async (data) => {
-    return await Axios.post(`user/user_notifications`, data);
-};
-
-export const addNotificationEmail = async (data) => {
-    return await Axios.post(`user/user_addNotificationEmail`, data);
-};
-
-export const removeNotificationEmail = async (data) => {
-    return await Axios.post(`user/user_removeNotificationEmail`, data);
+    return await Axios.post(`user/user_addFCM`, data);
 };
 
 export const deleteUserServices = async (payload) => {

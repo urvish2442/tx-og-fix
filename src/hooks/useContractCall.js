@@ -195,28 +195,27 @@ export const useCreateItems = () => {
             thumbnail: "",
         },
         validationSchema: Yup.object().shape({
-            collectionAddress: Yup.string().required(
-                "collection address is required"
-            ),
-            name: Yup.string().required("name is required"),
-            supply: Yup.number("Please enter valid value").when("type", {
+            collectionAddress: Yup.string().required("Collection is required"),
+            name: Yup.string().required("Name is required"),
+            supply: Yup.number("Please enter valid number").when("type", {
                 is: (type) => {
                     return type === TYPE.MULTI;
                 },
                 then: () =>
-                    Yup.string("supply is required").required(
-                        "supply is required"
-                    ),
+                    Yup.number("Please enter valid number")
+                        .min(1, "Minimum Supply is  1")
+                        .required("Supply is required"),
                 // otherwise: () => {
                 // 	Yup.mixed().notRequired();
                 // },
             }),
             attributesData: Yup.array().of(
                 Yup.object().shape({
-                    trait_type: Yup.string().required("trait_type is required"),
-                    value: Yup.string().required("value is required"),
+                    trait_type: Yup.string().required("Trait Type is required"),
+                    value: Yup.string().required("Value is required"),
                 })
             ),
+            mainFile: Yup.mixed().required("Collectible File is required"),
         }),
         onSubmit: async (values, helpers) => {
             let result;
@@ -297,9 +296,9 @@ export const useCreateItems = () => {
     const handleFileChange = (e) => {
         const fileType = e.target?.files[0]?.type.split("/")[0];
 
-        console.log("fileType", fileType);
+        // console.log("fileType", fileType);
 
-        console.log("e.target?.files[0]", e.target?.files[0]);
+        // console.log("e.target?.files[0]", e.target?.files[0]);
         if (e.target?.name === "mainFile") {
             mainFilePreview && URL.revokeObjectURL(mainFilePreview);
             setMainFilePreview(URL.createObjectURL(e.target?.files[0]));

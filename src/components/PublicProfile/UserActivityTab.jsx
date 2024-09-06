@@ -109,7 +109,8 @@ const UserActivityTab = ({
                             >
                                 <ImageLoader
                                     src={
-                                        event?.itemImage
+                                        event?.itemImage ||
+                                        "../../images/item-img.png"
                                     }
                                     alt="item-img"
                                     style={{

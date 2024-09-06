@@ -121,11 +121,11 @@ const collectorPage = () => {
                                                                         userLogo ||
                                                                         "/images/user.svg"
                                                                     }
-                                                                    alt="img"
+                                                                    alt="product-img"
                                                                     className="pointer"
                                                                     onClick={() =>
                                                                         userRouteHandler(
-                                                                            address
+                                                                            userName
                                                                         )
                                                                     }
                                                                 ></img>

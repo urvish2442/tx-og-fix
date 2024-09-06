@@ -542,7 +542,7 @@ export const useHeroSliderItems = () => {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const HERO_CHAIN_ID = [369, 8453];
+    const HERO_CHAIN_ID = [943, 84532];
 
     // To add this in Constants and change chainIds for production
     // to change cardTitle and CardSubTitle in auctionCard

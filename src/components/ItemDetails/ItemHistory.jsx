@@ -101,10 +101,11 @@ const ItemHistory = ({ item, selectedtab }) => {
                             height={45}
                             width={45}
                             src={
-                                ele?.name !== "Minted" &&
+                                (ele?.name !== "Minted" &&
                                 ele?.name !== "Purchase"
                                     ? ele?.fromUserlogo
-                                    : ele?.toUserlogo
+                                    : ele?.toUserlogo) ||
+                                "/images/square-img.svg"
                             }
                             alt="img"
                         ></img>

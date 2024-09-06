@@ -51,8 +51,7 @@ const Footer = () => {
             setIsLoading(false);
             Toast.error(
                 // error?.response?.data?.message || "Failed to subscribe"
-                "Failed to subscribe"
-
+                 "Failed to subscribe"
             );
             console.log("error", error);
         }
@@ -1021,7 +1020,7 @@ const Footer = () => {
                                 ></img>
                                 <span>
                                     {usdParser(
-                                        walletBalance[1].tokenRate || 0,
+                                        walletBalance[11155111].tokenRate || 0,
                                         2,
                                         7
                                     )}

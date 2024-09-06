@@ -4,6 +4,7 @@ import { CONSTANTS, PushAPI } from '@pushprotocol/restapi';
 import { useActiveWeb3React } from '@/hooks/useActiveWeb3React';
 import { ethers5Adapter } from 'thirdweb/adapters/ethers5';
 import { client } from '@/constant/walletPrefrences';
+import { MediaRenderer } from 'thirdweb/react';
 
 const Test = () => {
 
@@ -85,7 +86,9 @@ const Test = () => {
         }
     }
     return (
-        <button onClick={sendNotification}>Test</button>
+        <MediaRenderer 
+            src='https://ipfs.pulsemarket.app/ipfs/QmSDZbCqv44uiJm1FBRnvcEjDtqJnaYpQYHrcC2FbWcMRq/0.mp4'
+        />
     )
 }
 

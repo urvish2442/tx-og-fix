@@ -109,8 +109,8 @@ const TrandingNfts = () => {
                 ) : !items?.length > 0 ? (
                     <>
                         {/* <div className="d-flex justify-content-center">
-          No Trending NFTs Found!
-        </div> */}
+							No Trending NFTs Found!
+						</div> */}
                     </>
                 ) : (
                     <>
@@ -161,16 +161,16 @@ const TrandingNfts = () => {
                                 ))}
                                 {/* </Slider> */}
                                 {/* ) : (
-                    <>
-                        <div className="d-flex justify-content-center">
-                            {trandingNfts?.map((ele, index) => (
-                                <div key={index}>
-                                    <TrandingNftCard item={ele} key={index} />
-                                </div>
-                            ))}
-                        </div>
-                    </>
-                )} */}
+                        <>
+                            <div className="d-flex justify-content-center">
+                                {trandingNfts?.map((ele, index) => (
+                                    <div key={index}>
+                                        <TrandingNftCard item={ele} key={index} />
+                                    </div>
+                                ))}
+                            </div>
+                        </>
+                    )} */}
                             </div>
                         </CommonProductBLock>
                     </>

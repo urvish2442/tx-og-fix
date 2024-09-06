@@ -23,7 +23,7 @@ const homepage = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return (
-      <CommonPageBlockPad>
+      <CommonPageBlockPad className="dark-mode-body">
         <div className='common-center-graphics-block'>
           <svg width='385' height='460' viewBox='0 0 385 460' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <path

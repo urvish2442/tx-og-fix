@@ -1,8 +1,0 @@
-User-Agent: *
-Allow: /api/*
-
-User-agent: Googlebot
-Allow: /api/og/
-
-User-agent: Twitterbot
-Allow: /api/og/

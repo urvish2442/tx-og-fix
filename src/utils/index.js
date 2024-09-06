@@ -109,27 +109,6 @@ Axios.interceptors.response.use(
 
 export { Axios };
 
-const SocketAxios = axios.create({
-    baseURL: process.env.SOCKET_URL,
-});
-
-SocketAxios.interceptors.response.use(
-    function (response) {
-        return response;
-    },
-    function (error) {
-        if (error?.response) {
-            if (error.response.status === 403) {
-                localStorage.removeItem("connectedWallet");
-            }
-        }
-
-        return Promise.reject(error);
-    }
-);
-
-export { SocketAxios };
-
 export const toWei = (amount, decimals = 18) => {
     try {
         if (!amount) {
@@ -222,8 +201,8 @@ export const shortenText = (text, startLength = 4, endLength = 3) => {
 export const getItemDetailsQueryParams = (item) => {
     return {
         itemCollection: item?.itemCollection?.toLowerCase(),
-        tokenId: item?.tokenId,
         chainId: item?.chainId,
+        tokenId: item?.tokenId,
     };
 };
 

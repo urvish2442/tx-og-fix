@@ -131,8 +131,8 @@ const rankingPage = () => {
                               <div className='collection-name'>
                                 <div className='collection-profile'>
                                   <img
-                                    src={collectionImage}
-                                    alt='img'></img>
+                                    src={collectionImage || '../../images/collection-img.png'}
+                                    alt='product-img'></img>
                                   {/* <div className="verify-dots">
                                                                     <img
                                                                         src={

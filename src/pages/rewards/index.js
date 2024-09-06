@@ -77,24 +77,6 @@ const homepage = () => {
     const handleShowBuyPoints = () => setShowBuyPoints(true);
     const handleCloseBuyPoints = () => setShowBuyPoints(false);
 
-    const handleRoute = (item) => {
-        if (!item?.from) return;
-        let pathname, query;
-        if (item.type === "Referral") {
-            pathname = PATH_DASHBOARD.user.detail(item.from);
-        } else if (["Buy", "Sell"].includes(item.type)) {
-            pathname = PATH_DASHBOARD.item.details;
-            query = {
-                itemCollection: item?.from,
-                chainId: item?.chainId,
-                tokenId: item?.tokenId,
-            };
-        }
-        if (pathname) {
-            router.push({ pathname, query });
-        }
-    };
-
     return (
         <>
             <PageTitle title={"Rewards"} />
@@ -686,8 +668,7 @@ const homepage = () => {
                                                         <span>
                                                             {CountParser(
                                                                 data?.referralPoints ||
-                                                                    0,
-                                                                0
+                                                                    0, 0
                                                             )}
                                                         </span>
                                                     </div>
@@ -1011,20 +992,9 @@ const homepage = () => {
                                                                         {item?.type ||
                                                                             ""}
                                                                     </td>
-                                                                    <td
-                                                                        className={`${
-                                                                            item?.from
-                                                                                ? "pointer"
-                                                                                : ""
-                                                                        }`}
-                                                                        onClick={() =>
-                                                                            handleRoute(
-                                                                                item
-                                                                            )
-                                                                        }
-                                                                    >
+                                                                    <td>
                                                                         {shortenText(
-                                                                            item?.from ||
+                                                                            item?.address ||
                                                                                 "",
                                                                             6,
                                                                             4

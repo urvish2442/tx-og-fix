@@ -27,8 +27,11 @@ const OwnersModel = ({ owners, show, handleClose }) => {
                             <div className="top-token-block-inner-left">
                                 <div className="icon-bg">
                                     <img
-                                        src={owner?.userLogo}
-                                        alt="img"
+                                        src={
+                                            owner?.userLogo ||
+                                            "/images/profile-img-new.png"
+                                        }
+                                        alt="ethe-icon"
                                     ></img>
                                 </div>
                                 <div className="top-token-block-inner-content">
