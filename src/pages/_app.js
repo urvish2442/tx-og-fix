@@ -40,7 +40,6 @@ function MyApp({ Component, pageProps }) {
         url: `${FRONT_END_DOMAIN}`,
     };
 
-
     const {
         url: ogUrl = defaultOgData.url,
         title: ogTitle = defaultOgData.title,
