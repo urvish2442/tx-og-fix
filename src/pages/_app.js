@@ -31,14 +31,16 @@ function MyApp({ Component, pageProps }) {
     //             });
     //     }
     // }, []);
+    const url = FRONT_END_DOMAIN;
+    const imgUrl= `${FRONT_END_DOMAIN}/staticOgImages/GeneralCard.png`
 
-    const defaultOgData = {
-        title: "TesseractX",
-        description:
-            "TesseractX is the ultimate rewarding, multi-chain, community-centric digital collectibles marketplace.",
-        imgUrl: `${FRONT_END_DOMAIN}/staticOgImages/GeneralCard.png`,
-        url: `${FRONT_END_DOMAIN}`,
-    };
+    // const defaultOgData = {
+    //     title: "TesseractX",
+    //     description:
+    //         "TesseractX is the ultimate rewarding, multi-chain, community-centric digital collectibles marketplace.",
+    //     imgUrl: `${FRONT_END_DOMAIN}/staticOgImages/GeneralCard.png`,
+    //     url: FRONT_END_DOMAIN,
+    // };
 
     // const {
     //     url: ogUrl = defaultOgData.url,
@@ -62,18 +64,28 @@ function MyApp({ Component, pageProps }) {
                 <meta content="text/html; charset=UTF-8" name="Content-Type" />
 
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content={defaultOgData.url} />
-                <meta property="og:title" content={defaultOgData.title} />
-                <meta property="og:description" content={defaultOgData.description} />
-                <meta property="og:image" content={defaultOgData.imgUrl} />
+                <meta property="og:url" content={url} />
+                <meta property="og:title" content={"TesseractX"} />
+                <meta
+                    property="og:description"
+                    content={
+                        "TesseractX is the ultimate rewarding, multi-chain, community-centric digital collectibles marketplace."
+                    }
+                />
+                <meta property="og:image" content={imgUrl} />
                 <meta property="og:image:width" content="600" />
                 <meta property="og:image:height" content="315" />
 
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta property="twitter:url" content={defaultOgData.url} />
-                <meta property="twitter:title" content={defaultOgData.title} />
-                <meta property="twitter:description" content={defaultOgData.description} />
-                <meta property="twitter:image" content={defaultOgData.imgUrl} />
+                <meta property="twitter:url" content={url} />
+                <meta property="twitter:title" content={"TesseractX"} />
+                <meta
+                    property="twitter:description"
+                    content={
+                        "TesseractX is the ultimate rewarding, multi-chain, community-centric digital collectibles marketplace."
+                    }
+                />
+                <meta property="twitter:image" content={imgUrl} />
             </Head>
             {/* )} */}
             <WalletProvider>
