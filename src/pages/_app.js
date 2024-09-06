@@ -32,20 +32,20 @@ function MyApp({ Component, pageProps }) {
     //     }
     // }, []);
 
-    const defaultOgData = {
-        title: "TesseractX",
-        description:
-            "TesseractX is the ultimate rewarding, multi-chain, community-centric digital collectibles marketplace.",
-        imgUrl: `${FRONT_END_DOMAIN}/staticOgImages/GeneralCard.png`,
-        url: `${FRONT_END_DOMAIN}`,
-    };
+    // const defaultOgData = {
+    //     title: "TesseractX",
+    //     description:
+    //         "TesseractX is the ultimate rewarding, multi-chain, community-centric digital collectibles marketplace.",
+    //     imgUrl: `${FRONT_END_DOMAIN}/staticOgImages/GeneralCard.png`,
+    //     url: `${FRONT_END_DOMAIN}`,
+    // };
 
-    const {
-        url: ogUrl = defaultOgData.url,
-        title: ogTitle = defaultOgData.title,
-        description: ogDescription = defaultOgData.description,
-        imgUrl: ogImgUrl = defaultOgData.imgUrl,
-    } = pageProps?.ogData || {};
+    // const {
+    //     url: ogUrl = defaultOgData.url,
+    //     title: ogTitle = defaultOgData.title,
+    //     description: ogDescription = defaultOgData.description,
+    //     imgUrl: ogImgUrl = defaultOgData.imgUrl,
+    // } = pageProps?.ogData || {};
     return (
         <>
             {/* {ogData && ( */}
@@ -95,9 +95,9 @@ function MyApp({ Component, pageProps }) {
     );
 }
 
-MyApp.getInitialProps = async (appContext) => {
-    const appProps = await App.getInitialProps(appContext);
-    return { ...appProps };
-};
+// MyApp.getInitialProps = async (appContext) => {
+//     const appProps = await App.getInitialProps(appContext);
+//     return { ...appProps };
+// };
 
 export default MyApp;
