@@ -59,15 +59,15 @@ function MyApp({ Component, pageProps }) {
                     name="viewport"
                     content="width=device-width, initial-scale=1"
                 />
-                <meta content="text/html; charset=UTF-8" name="Content-Type" />
+                {/* <meta content="text/html; charset=UTF-8" name="Content-Type" /> */}
 
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content={ogUrl} />
+                {/* <meta property="og:type" content="website" /> */}
+                {/* <meta property="og:url" content={ogUrl} />
                 <meta property="og:title" content={ogTitle} />
-                <meta property="og:description" content={ogDescription} />
+                <meta property="og:description" content={ogDescription} /> */}
                 {/* <meta property="og:image" content={ogImgUrl} /> */}
-                <meta property="og:image:width" content="600" />
-                <meta property="og:image:height" content="315" />
+                {/* <meta property="og:image:width" content="600" />
+                <meta property="og:image:height" content="315" /> */}
 
                 {/* <meta name="twitter:card" content="summary_large_image" />
                 <meta property="twitter:url" content={ogUrl} />
