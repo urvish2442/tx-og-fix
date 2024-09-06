@@ -61,7 +61,7 @@ function MyApp({ Component, pageProps }) {
                     name="viewport"
                     content="width=device-width, initial-scale=1"
                 />
-                <meta content="text/html; charset=UTF-8" name="Content-Type" />
+                {/* <meta content="text/html; charset=UTF-8" name="Content-Type" /> */}
 
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content={url} />
