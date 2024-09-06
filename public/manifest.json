@@ -1,0 +1,50 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "TesseractX",
+  "orientation": "any",
+  "scope": "https://tesseractx.com/",
+  "short_name": "TesseractX",
+  "start_url": "https://tesseractx.com/",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "612.png",
+      "sizes": "612x612",
+      "type": "image/png"
+    },
+    {
+      "src": "192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "description": "TesseractX is the ultimate rewarding, multi-chain, community-centric digital collectibles marketplace",
+  "id": "1",
+  "prefer_related_applications": false,
+  "iarc_rating_id": "12+",
+  "categories": [
+    "finance"
+  ],
+  "shortcuts": [
+    {
+      "name": "Home",
+      "url": "https://tesseractx.com/",
+      "description": "Home"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpg",
+      "platform": "wide"
+    }
+  ]
+}
