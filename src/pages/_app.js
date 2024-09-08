@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import Head from "next/head";
 import App from "next/app";
 import { ChatProvider } from "@/context/ChatContext";
-// import { FRONT_END_DOMAIN } from "@/constant/ogConstant";
+import { FRONT_END_DOMAIN } from "@/constant/ogConstant";
 const WalletProvider = dynamic(() => import("../connection/WalletProvider"), {
     ssr: false,
 });
