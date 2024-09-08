@@ -54,10 +54,10 @@ function MyApp({ Component, pageProps }) {
                 <meta property="og:image:height" content="315" />
 
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta property="twitter:url" content={ogUrl} />
-                <meta property="twitter:title" content={ogTitle} />
-                <meta property="twitter:description" content={ogDescription} />
-                <meta property="twitter:image" content={ogImgUrl} />
+                <meta name="twitter:url" content={ogUrl} />
+                <meta name="twitter:title" content={ogTitle} />
+                <meta name="twitter:description" content={ogDescription} />
+                <meta name="twitter:image" content={ogImgUrl} />
             </Head>
             {/* )} */}
             <WalletProvider>
