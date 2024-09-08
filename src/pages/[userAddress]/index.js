@@ -22,8 +22,10 @@ export async function getServerSideProps(context) {
     let userData = {};
 
     try {
-        const { data } = await getOwnerDetailsService(query);
-        userData = data?.data || {};
+        if (query.domainName != "OneSignalSDKWorker.js") {
+            const { data } = await getOwnerDetailsService(query);
+            userData = data?.data || {};
+        }
     } catch (error) {
         console.error("Error fetching user details:", error);
         userData = {
