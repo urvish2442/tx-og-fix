@@ -8,6 +8,7 @@ import { Histogram, ItemCard } from "..";
 import Accordion from "react-bootstrap/Accordion";
 import { COLLECTION_DETAILS_FILTER } from "@/constant";
 
+
 const NFTsTab = ({ collectionDetails = {}, defaultPriceArray = [] }) => {
     const { search, sort, grid } = usePublicProfile();
     const [traits, setTraits] = useState([]);
@@ -311,7 +312,8 @@ const NFTsTab = ({ collectionDetails = {}, defaultPriceArray = [] }) => {
                             </>
                         ) : !items?.length > 0 ? (
                             <>
-                                <div className="d-flex justify-content-center"></div>
+                                <div className="d-flex justify-content-center">
+                                </div>
                             </>
                         ) : (
                             <div

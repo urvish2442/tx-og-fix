@@ -106,9 +106,7 @@ const TrendingCollections = () => {
                                                                 }
                                                                 alt="img"
                                                                 imageClassProps="card-main-img object-fit-cover"
-                                                                style={{
-                                                                    width: "100%",
-                                                                }}
+                                                                style={{width:"100%"}}
                                                                 mediaRenderer={
                                                                     false
                                                                 }
@@ -144,9 +142,7 @@ const TrendingCollections = () => {
                                                                     }
                                                                     alt="img"
                                                                     imageClassProps="card-main-img object-fit-cover"
-                                                                    style={{
-                                                                        width: "100%",
-                                                                    }}
+                                                                    style={{width:"100%"}}
                                                                     mediaRenderer={
                                                                         false
                                                                     }
@@ -185,9 +181,7 @@ const TrendingCollections = () => {
                                                                             }
                                                                             alt="img"
                                                                             imageClassProps="card-main-img object-fit-cover"
-                                                                            style={{
-                                                                                width: "100%",
-                                                                            }}
+                                                                            style={{width:"100%"}}
                                                                             mediaRenderer={
                                                                                 false
                                                                             }
@@ -229,9 +223,7 @@ const TrendingCollections = () => {
                                                                 }
                                                                 alt="img"
                                                                 imageClassProps="card-main-img object-fit-cover"
-                                                                style={{
-                                                                    width: "100%",
-                                                                }}
+                                                                style={{width:"100%"}}
                                                                 mediaRenderer={
                                                                     false
                                                                 }

@@ -9,7 +9,8 @@ import {
     updateUserService,
     addFCMkeys,
     addNotificationPreference,
-    addNotificationInfo,
+    addNotificationEmail,
+    removeNotificationEmail,
     deleteUserServices,
 } from "../services/globalServices";
 import {
@@ -361,15 +362,31 @@ export const updateUserAction = createAsyncThunk(
 export const addUserFCMkeys = createAsyncThunk(
     "user/addUserFCMkeys",
     async ({ fcmToken, signMessage }, { dispatch, getState }) => {
+        let sign_toast_id;
+        sign_toast_id = toast.loading("Signing...");
         try {
             const { global } = getState();
             const { userDetails, account } = global;
+            const signature = await signMessage({
+                message: `I want to update my profile :${account?.toLowerCase()}:${
+                    userDetails?.nonce
+                }`,
+            });
+            if (!signature) {
+                Toast.error("Signing failed!");
+
+                return;
+            }
+            toast.dismiss(sign_toast_id);
             const data = {
                 address: account,
+                signature,
                 fcmToken,
             };
             const res = await addFCMkeys(data);
             dispatch(getUserAction({ account }));
+            toast.success("Success!");
+
             return data?.data;
         } catch (err) {
             if (err instanceof AxiosError) {
@@ -379,7 +396,7 @@ export const addUserFCMkeys = createAsyncThunk(
             }
             return Toast.error(err.message);
         } finally {
-    
+            toast.dismiss(sign_toast_id);
         }
     }
 );
@@ -427,16 +444,19 @@ export const updateNotificationPreference = createAsyncThunk(
     }
 );
 
-export const updateNotificationInfo = createAsyncThunk(
-    "user/updateNotificationInfo",
-    async ({ signMessage, info}, { dispatch, getState }) => {
+export const UpdateEmail = createAsyncThunk(
+    "user/UpdateEmail",
+    async ({ signMessage, email, type }, { dispatch, getState }) => {
         let sign_toast_id;
+        console.log(email, "email");
         sign_toast_id = toast.loading("Signing...");
         try {
             const { global } = getState();
             const { userDetails, account } = global;
             const signature = await signMessage({
-                message: `I want to update my profile :${account?.toLowerCase()}:${userDetails?.nonce}`
+                message: `I want to update my email :${account?.toLowerCase()}:${
+                    userDetails?.nonce
+                }`,
             });
             if (!signature) {
                 Toast.error("Signing failed!");
@@ -444,15 +464,27 @@ export const updateNotificationInfo = createAsyncThunk(
                 return;
             }
             toast.dismiss(sign_toast_id);
-            const data = {
-                address: account,
-                signature,
-                ...info
+
+            if (type == "disabled") {
+                const dataObj = {
+                    address: account,
+                    signature,
+                };
+                const res = await removeNotificationEmail(dataObj);
+                dispatch(getUserAction({ account }));
+                toast.success("Success!");
+                return res?.data;
+            } else {
+                const data = {
+                    address: account,
+                    email,
+                    signature,
+                };
+                const res = await addNotificationEmail(data);
+                dispatch(getUserAction({ account }));
+                toast.success("Success!");
+                return res?.data;
             }
-            const res = await addNotificationInfo(data);
-            dispatch(getUserAction({ account }));
-            toast.success("Success!")
-            return res.data;
         } catch (err) {
             if (err instanceof AxiosError) {
                 return Toast.error(err.message);

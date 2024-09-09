@@ -72,7 +72,7 @@ export const creatingListingAction = createAsyncThunk(
             endListingDate,
             signMessage,
             listOnOpenSea,
-            selectedMarketplaces
+            selectedMarketplaces,
         },
         { rejectWithValue, dispatch, getState }
     ) => {
@@ -152,10 +152,9 @@ export const creatingListingAction = createAsyncThunk(
                     price: String(price),
                     currency: ZeroAddress,
                     quantity: String(quantity),
-                    endTime: endTimestamp
-                })
+                    endTime: endTimestamp,
+                });
             }
-
 
             console.log("testing", payload);
             const result = await addToListing({
@@ -362,12 +361,10 @@ export const createAuctionAction = createAsyncThunk(
         let load_toast_id;
         try {
             sign_toast_id = toast.loading("Signing...");
-            console.log('signMessage', signMessage)
             const signature = await signMessage({
                 message: `I want to create auction with this information: ${collection}:${tokenId}:${currency}:${quantity}:${minimumBidAmount}:${buyoutBidAmount}:${endTimestamp}:${account}`,
             });
 
-            console.log('signature', signature)
             if (!signature) {
                 Toast.error("Signing Failed!");
                 toast.dismiss(sign_toast_id);
@@ -1071,8 +1068,9 @@ export const createCollectionAction = createAsyncThunk(
             } = global;
 
             const signature = await values?.signMessage({
-                message: `I want to create new collection with this information:${account?.toLowerCase()}:${values?.payload?.name
-                    }:${values?.payload?.category}:${chainId}`,
+                message: `I want to create new collection with this information:${account?.toLowerCase()}:${
+                    values?.payload?.name
+                }:${values?.payload?.category}:${chainId}`,
             });
             if (!signature) {
                 Toast.error("Signing failed!");
@@ -1185,7 +1183,6 @@ export const createCollectionAction = createAsyncThunk(
         }
     }
 );
-
 export const collectionUriUpdateAction = createAsyncThunk(
     "market/collectionUriUpdateAction",
     async (payload, { rejectWithValue, dispatch, getState }) => {
@@ -1537,8 +1534,9 @@ export const createSingleNftAction = createAsyncThunk(
             } = global;
 
             const signature = await values?.signMessage({
-                message: `I want to create new item with this information:${account?.toLowerCase()}:${values?.payload?.name
-                    }:${values?.payload?.collectionAddress}:${chainId}`,
+                message: `I want to create new item with this information:${account?.toLowerCase()}:${
+                    values?.payload?.name
+                }:${values?.payload?.collectionAddress}:${chainId}`,
             });
             if (!signature) {
                 Toast.error("Signing failed!");
@@ -1602,12 +1600,12 @@ export const createSingleNftAction = createAsyncThunk(
                 attributes: values?.payload?.attributesData,
                 animation_url:
                     values?.payload?.asset_type === "video" ||
-                        values?.payload?.asset_type === "audio"
+                    values?.payload?.asset_type === "audio"
                         ? mainFileHash
                         : "",
                 image:
                     values?.payload?.asset_type === "video" ||
-                        values?.payload?.asset_type === "audio"
+                    values?.payload?.asset_type === "audio"
                         ? coverImgHash
                         : mainFileHash,
                 meta: {
@@ -1685,8 +1683,9 @@ export const createMultipleNftAction = createAsyncThunk(
             } = global;
 
             const signature = await values?.signMessage({
-                message: `I want to create new item with this information:${account?.toLowerCase()}:${values?.payload?.name
-                    }:${values?.payload?.collectionAddress}:${chainId}`,
+                message: `I want to create new item with this information:${account?.toLowerCase()}:${
+                    values?.payload?.name
+                }:${values?.payload?.collectionAddress}:${chainId}`,
             });
             if (!signature) {
                 Toast.error("Signing failed!");
@@ -1747,12 +1746,12 @@ export const createMultipleNftAction = createAsyncThunk(
                 attributes: values?.payload?.attributesData,
                 animation_url:
                     values?.payload?.asset_type === "video" ||
-                        values?.payload?.asset_type === "audio"
+                    values?.payload?.asset_type === "audio"
                         ? mainFileHash
                         : "",
                 image:
                     values?.payload?.asset_type === "video" ||
-                        values?.payload?.asset_type === "audio"
+                    values?.payload?.asset_type === "audio"
                         ? coverImgHash
                         : mainFileHash,
                 meta: {

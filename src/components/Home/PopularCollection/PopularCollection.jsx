@@ -104,16 +104,16 @@ const PopularCollection = () => {
                         </div>
                         {/* </Slider> */}
                         {/* ) : (
-				<>
-					<div className="d-flex justify-content-center">
-						{populerCollection?.map((ele, index) => (
-							<div key={index}>
-								<PopularCollectionCard item={ele} key={index} />
-							</div>
-						))}
-					</div>
-				</>
-			)} */}
+    <>
+      <div className="d-flex justify-content-center">
+        {populerCollection?.map((ele, index) => (
+          <div key={index}>
+            <PopularCollectionCard item={ele} key={index} />
+          </div>
+        ))}
+      </div>
+    </>
+  )} */}
                     </>
                 )}
                 <div className="common-title-block mobile-view-block">

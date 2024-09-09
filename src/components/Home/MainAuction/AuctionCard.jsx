@@ -18,10 +18,10 @@ const AuctionCard = ({ item, handleClick }) => {
     const router = useRouter();
     const handleRouteChange = () => {
         router.push({
-            pathname: PATH_DASHBOARD.item.details,
-            query: {
-                ...getItemDetailsQueryParams(item),
-            },
+            pathname: PATH_DASHBOARD.explore.nfts,
+            // query: {
+            //     ...getItemDetailsQueryParams(item),
+            // },
         });
     };
     const handleBlogRouteChange = () => {
@@ -31,12 +31,12 @@ const AuctionCard = ({ item, handleClick }) => {
     };
 
     const CardTitle = {
-        943: "PulseChain",
-        84532: "Base on TesseractX",
+        369: "PulseChain",
+        8453: "Base on TesseractX",
     };
     const CardSubTitle = {
-        943: "Create and access your favourite NFT’s",
-        84532: "Base is officially live on The TesseractX Marketplace. Buy, sell and create your Base NFTs - right here on TesseractX",
+        369: "Create and access your favourite NFT’s",
+        8453: "Base is officially live on The TesseractX Marketplace. Buy, sell and create your Base NFTs - right here on TesseractX",
     };
     return (
         <div>
@@ -54,7 +54,7 @@ const AuctionCard = ({ item, handleClick }) => {
                                 className="rounded-[62px] bg-transparent dark:bg-zinc-900 w-full"
                             >
                                 <ImageLoader
-                                    src={item?.image}
+                                    src={item?.image || item?.animation_url}
                                     thumbnail={item?.thumbnail}
                                     alt={item?.name}
                                     style={{}}

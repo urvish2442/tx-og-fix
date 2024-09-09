@@ -37,7 +37,7 @@ const InventoryTab = () => {
             },
         });
     };
-    // getItemDetailsQueryParams;
+    getItemDetailsQueryParams;
     useEffect(() => {
         if (!sortBy) {
             setSortedItems(items);
@@ -157,7 +157,7 @@ const InventoryTab = () => {
                         <td>
                           <div className='collection-name'>
                             <div className='collection-profile'>
-                              <img src={image || '../../images/profile-img-new.png'} alt='profile-img'></img>
+                              <img src={image} alt='img'></img>
                             </div>
                             <h3>{name || ''}</h3>
                           </div>

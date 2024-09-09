@@ -1,10 +1,9 @@
 import HomeMainComponent from "@/components/Home/HomeMainComponent/HomeMainComponent";
-import { FRONT_END_DOMAIN } from "@/constant/ogConstant";
-// import { FRONT_END_DOMAIN } from "@/constant";
+import { FRONT_END_DOMAIN } from "@/constant";
 import React from "react";
 
 export async function getServerSideProps(context) {
-    const ogImageUrl = `${FRONT_END_DOMAIN}/api/og/home`;
+    const ogImageUrl = `${FRONT_END_DOMAIN}/staticOgImages/ReferralCard.png`;
     return {
         props: {
             ogData: {

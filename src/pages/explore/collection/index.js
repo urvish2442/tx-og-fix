@@ -180,7 +180,7 @@ const popularCollectionsPage = () => {
                             <td>
                               <div className='collection-name'>
                                 <div className='collection-profile'>
-                                  <img src={image || '../../images/collection-img.png'} alt='product-img'></img>
+                                  <img src={image} alt='img'></img>
                                   {/* <div className="verify-dots">
                                                                     <img
                                                                         src={
@@ -224,7 +224,7 @@ const popularCollectionsPage = () => {
                             <td>{sales}</td>
                             <td>
                               <div className='total-volume-block'>
-                                <img src={CHAIN_LOGO[chainId]} alt='icon-img'></img>
+                                <img src={CHAIN_LOGO[chainId]} alt='img'></img>
                                 <p>{CountParser(totalVolume, 4)}</p>
                               </div>
                             </td>

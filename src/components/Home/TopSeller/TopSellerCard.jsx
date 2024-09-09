@@ -17,13 +17,7 @@ const TopSellerCard = ({ user, index }) => {
             >
                 <div className="top-seller-collection-profile">
                     <div className="top-seller-collection-profile-img">
-                        <img
-                            src={
-                                user?.userLogo ||
-                                "/images/user.svg"
-                            }
-                            alt={user?.userName}
-                        />
+                        <img src={user?.userLogo} alt={user?.userName} />
                         {/* <div className="verify-icon-block">
 							<img
 								src={"../../images/verify-icon-check.svg"}

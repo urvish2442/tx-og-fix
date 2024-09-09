@@ -102,7 +102,7 @@ const GlobalSerach = ({ setShowDropdown, showDropdown }) => {
     const userRouteHandler = (user) => {
         let path =
             user?.address !== account
-                ? PATH_DASHBOARD.user.detail(user?.name)
+                ? PATH_DASHBOARD.user.detail(user?.address)
                 : PATH_DASHBOARD.profile.root;
         router.push({
             pathname: path,
@@ -204,10 +204,7 @@ const GlobalSerach = ({ setShowDropdown, showDropdown }) => {
                                                         }}
                                                     >
                                                         <img
-                                                            src={
-                                                                ele?.lowLogo ||
-                                                                "../../images/profile-img-product.png"
-                                                            }
+                                                            src={ele?.lowLogo}
                                                             alt="collection-img"
                                                         ></img>
                                                         <div className="product-profile-details">
@@ -253,10 +250,7 @@ const GlobalSerach = ({ setShowDropdown, showDropdown }) => {
                                                         }
                                                     >
                                                         <img
-                                                            src={
-                                                                ele?.lowLogo ||
-                                                                "/images/user.svg"
-                                                            }
+                                                            src={ele?.lowLogo}
                                                             alt="user-img"
                                                         ></img>
                                                         <div className="product-profile-details">
@@ -286,10 +280,7 @@ const GlobalSerach = ({ setShowDropdown, showDropdown }) => {
                                                         }
                                                     >
                                                         <ImageLoader
-                                                            src={
-                                                                ele?.image ||
-                                                                "../../images/profile-img-product.png"
-                                                            }
+                                                            src={ele?.image}
                                                             alt="item-img"
                                                             style={{
                                                                 width: "40px",

@@ -53,6 +53,7 @@ const ProfileButtonHeader = () => {
         if (chatLoading) return;
         messageCountParser(unreadMessages);
     }, [chatLoading, unreadMessages]);
+
     const clickHandler = useCallback(() => {
         setShow(true);
         window.addEventListener("click", onClick);
@@ -1088,8 +1089,7 @@ const ProfileButtonHeader = () => {
                                                                 src={
                                                                     CHAIN_LOGO[
                                                                         chain
-                                                                    ] ||
-                                                                    "../../images/eth-icon.svg"
+                                                                    ]
                                                                 }
                                                                 alt="img"
                                                             ></img>

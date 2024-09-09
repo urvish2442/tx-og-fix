@@ -899,11 +899,11 @@ export const useItems = () => {
         let Chain = ChainId;
         if (state.payload.itemCollection == ItemCollection) {
             collection = "";
-            Chain = null;            
+            Chain = null;
         }
         dispatch({
             type: STATE.SETCOLLECTION,
-            payload: { ItemCollection:collection , ChainId:Chain },
+            payload: { ItemCollection: collection, ChainId: Chain },
         });
     };
 

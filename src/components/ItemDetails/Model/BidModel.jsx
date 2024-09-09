@@ -346,7 +346,9 @@ const BidModel = ({
                             <h4>Balance</h4>
                             <h4>
                                 {balance
-                                    ? parseFloat(balance.replace(/,/g, "")).toFixed(2)
+                                    ? parseFloat(
+                                          balance.replace(/,/g, "")
+                                      ).toFixed(2)
                                     : 0}{" "}
                                 {item?.symbol}
                             </h4>
@@ -389,10 +391,7 @@ const BidModel = ({
                                 >
                                     <div className="history-block-left">
                                         <img
-                                            src={
-                                                bid?.userLogo ||
-                                                "/images/square-img.svg"
-                                            }
+                                            src={bid?.userLogo}
                                             alt="img"
                                         ></img>
                                         <div className="history-block-left-details">

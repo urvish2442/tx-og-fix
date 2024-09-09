@@ -148,8 +148,7 @@ const ItemDetailComponent = () => {
                                     <ImageLoader
                                         src={
                                             item?.animation_url ||
-                                            item?.image ||
-                                            "/images/item-details.png"
+                                            item?.image
                                         }
                                         visualizer={item?.asset_type == "audio"}
                                         thumbnail={item?.thumbnail}
@@ -168,10 +167,9 @@ const ItemDetailComponent = () => {
                                         >
                                             <img
                                                 src={
-                                                    item?.collectionLogo ||
-                                                    "/images/item-details.png"
+                                                    item?.collectionLogo
                                                 }
-                                                alt="item-img"
+                                                alt="img"
                                             ></img>
                                             <div className="profile-share-title">
                                                 <h4>{item?.collectionName}</h4>

@@ -79,8 +79,8 @@ const FollowingTab = () => {
                                         </Dropdown.Menu>
                                     </Dropdown>
                                     <img
-                                        src={item.image || "/images/user.svg"}
-                                        alt="profile-img"
+                                        src={item.image}
+                                        alt="img"
                                         className="pointer"
                                         onClick={() =>
                                             handleRouteChange(item?.name)
@@ -99,9 +99,11 @@ const FollowingTab = () => {
                             </div>
                         ))
                     ) : (
-                        <div className="d-flex justify-content-center w-100 align-items-center" style={{height:"350px"}}>
-                        <p>
-                            You are not following anyone yet.</p>
+                        <div
+                            className="d-flex justify-content-center w-100 align-items-center"
+                            style={{ height: "350px" }}
+                        >
+                            <p>You are not following anyone yet.</p>
                         </div>
                     )}
                 </div>

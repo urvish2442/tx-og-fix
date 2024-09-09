@@ -39,7 +39,7 @@ const UserOffersTab = ({
             query: {
                 itemCollection: item?.itemCollection,
                 chainId: item?.chainId,
-                tokenId: item?.tokenId,                
+                tokenId: item?.tokenId,
             },
         });
     };
@@ -90,10 +90,7 @@ const UserOffersTab = ({
                                         <td>
                                             <div className="profile-img-block">
                                                 <ImageLoader
-                                                    src={
-                                                        item?.image ||
-                                                        "../../images/item-img.png"
-                                                    }
+                                                    src={item?.image}
                                                     alt="item-img"
                                                     style={{
                                                         width: "60px",

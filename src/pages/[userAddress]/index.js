@@ -22,10 +22,8 @@ export async function getServerSideProps(context) {
     let userData = {};
 
     try {
-        if (query.domainName != "OneSignalSDKWorker.js") {
-            const { data } = await getOwnerDetailsService(query);
-            userData = data?.data || {};
-        }
+        const { data } = await getOwnerDetailsService(query);
+        userData = data?.data || {};
     } catch (error) {
         console.error("Error fetching user details:", error);
         userData = {
@@ -69,7 +67,7 @@ export async function getServerSideProps(context) {
     return {
         props: {
             ogData: {
-                url: `${FRONT_END_DOMAIN}/@${userAddress}`,
+                url: `${FRONT_END_DOMAIN}/${userAddress}`,
                 imgUrl: ogImageUrl,
                 title: userName,
                 description: description,

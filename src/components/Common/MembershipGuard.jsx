@@ -30,11 +30,11 @@ const MembershipGuard = ({ children }) => {
         return (
             <div className="d-flex justify-content-center align-items-center flex-column m-5 h-[18rem]">
                 <h4 className="mt-5 text-center">
-                    You currently do not have a Yotta membership.
+                    You need a Yotta key to unlock!
                 </h4>
                 <div style={{ width: "200px" }} className="mt-2">
                     <Button onClick={redirectToMembershipPage}>
-                        Go to Membership
+                        Unlock
                     </Button>
                 </div>
             </div>

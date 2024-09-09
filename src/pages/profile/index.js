@@ -85,11 +85,7 @@ const profilepage = () => {
                     <div className="top-collection-block-main">
                         <div className="top-collection-block">
                             <div
-                                className={`top-banner-main-new ${
-                                    userDetails?.bannerUrl
-                                        ? "vertically-fade-banner"
-                                        : ""
-                                }`}
+                                className={`top-banner-main-new vertically-fade-banner`}
                             >
                                 {/* <ImageLoader
                                     src={
@@ -104,7 +100,7 @@ const profilepage = () => {
                                         userDetails?.bannerUrl ||
                                         "../../images/banner-profile-public.png"
                                     }
-                                    alt="profile-img"
+                                    alt="img"
                                     // style={{ height: "375px" }}
                                 ></img>
                                 {/* <img
@@ -344,11 +340,9 @@ const profilepage = () => {
                                                     <img
                                                         src={
                                                             userDetails?.highLogo
-                                                                ? userDetails?.highLogo
-                                                                : "/images/user.svg"
                                                         }
-                                                        rounded={true}
-                                                        alt="profile-img"
+                                                        // rounded={true}
+                                                        alt="img"
                                                     />
                                                 ) : (
                                                     ""

@@ -1,17 +1,16 @@
 export const CHAIN_LOGO = {
     // 943: "/images/pulsechain-icon.svg",
-    943: "/images/LogoVectorPulseChain.svg",
-    1: "/images/ethe-icon-blue.svg",
-    11155111: "/images/ethereum-icon.svg",
-    84532: "/images/base-icon.svg",
+    369: "/images/LogoVectorPulseChain.svg",
+    // 1: "/images/ethe-icon-blue.svg",
+    1: "/images/ethereum-icon.svg",
+    8453: "/images/base-icon.svg",
 };
 
-export const FRONT_END_DOMAIN = "https://tx-og-fix.vercel.app";
+export const FRONT_END_DOMAIN = "https://tesseractx.com";
 
 export const GET_CHAIN_NAMES = {
-    943: "PulseChain",
-    11155111: "Sepolia",
-    84532: "Sepolia Goerli",
+    369: "PulseChain",
+    8453: "Base",
     1: "Ethereum",
 };
 
@@ -37,4 +36,10 @@ export const OgCountParser = (value, fixTo = 2, length = 1) => {
             ? numberValue.toString()
             : numberValue.toFixed(fixTo);
     }
+};
+
+export const RPC_URLS = {
+    369: "https://rpc.pulsechain.com",
+    1: "https://1.rpc.thirdweb.com/278d8a2ed6aa9f67ac7c1fd654804a9b",
+    8453: "https://8453.rpc.thirdweb.com/278d8a2ed6aa9f67ac7c1fd654804a9b",
 };

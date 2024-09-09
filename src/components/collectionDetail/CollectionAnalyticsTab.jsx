@@ -312,10 +312,7 @@ const CollectionAnalyticsTab = ({ collectionDetails = {} }) => {
                                                                     #{index + 1}
                                                                 </span>
                                                                 <img
-                                                                    src={
-                                                                        image ||
-                                                                        "/images/user.svg"
-                                                                    }
+                                                                    src={image || "/images/user.svg"}
                                                                     alt="item-img"
                                                                 ></img>
                                                                 <div className="text-img-block">

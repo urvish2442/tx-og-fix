@@ -399,7 +399,7 @@ const CollectionDetailComponent = () => {
                                                                     collectionDetails
                                                                         ?.chainId
                                                                 ]
-                                                            }/address/${
+                                                            }${
                                                                 collectionDetails?.address
                                                             }`}
                                                             target="_blank"

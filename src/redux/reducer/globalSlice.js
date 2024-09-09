@@ -39,12 +39,12 @@ const initialState = {
         status: null,
     },
     walletBalance: {
-        943: { loading: true },
-        84532: { loading: true },
-        11155111: { loading: true },
-        8453: { loading: true },
-        1: { loading: true },
+        // 943: { loading: true },
+        // 84532: { loading: true },
+        // 11155111: { loading: true },
         369: { loading: true },
+        1: { loading: true },
+        8453: { loading: true },
     },
     unreadMessageCount: 0,
 };
@@ -262,6 +262,17 @@ const globalSlice = createSlice({
                     state.error = payload;
                 }
             )
+            .addCase(UpdateEmail.pending, (state) => {
+                // contact us page
+                state.loading = true;
+            })
+            .addCase(UpdateEmail.fulfilled, (state) => {
+                state.loading = false;
+            })
+            .addCase(UpdateEmail.rejected, (state, { payload }) => {
+                state.loading = false;
+                state.error = payload;
+            });
     },
 });
 

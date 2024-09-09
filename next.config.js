@@ -37,6 +37,7 @@ module.exports = {
 		ALCHAMY_KEY: process.env.ALCHAMY_KEY,
 		WALLETCONNECT_PROJECT_ID: process.env.WALLETCONNECT_PROJECT_ID,
 		API_URL: process.env.API_URL,
+		SOCKET_URL: process.env.SOCKET_URL,
 		PINATA_API_KEY: process.env.PINATA_API_KEY,
 		PINATA_API_SECRAT: process.env.PINATA_API_SECRAT,
 		PINATA_JWT: process.env.PINATA_JWT,
@@ -66,13 +67,13 @@ module.exports = {
 			},
 			{
 				protocol: "https",
-				hostname: "https://cdn.onesignal.com",
+				hostname: "cdn.onesignal.com",
 				port: "",
 				pathname: "/*/**",
 			},
 			{
 				protocol: "https",
-				hostname: "https://api.tesseractx.com",
+				hostname: "api.tesseractx.com",
 				port: "",
 				pathname: "/*/**",
 			},

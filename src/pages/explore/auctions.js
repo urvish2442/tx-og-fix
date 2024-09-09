@@ -138,7 +138,9 @@ const AuctionPage = () => {
                                                 }
                                                 alt=""
                                                 classProp={"rounded-4"}
-                                                thumbnail={topAuction?.thumbnail}
+                                                thumbnail={
+                                                    topAuction?.thumbnail
+                                                }
                                             />
                                             <div className="auction-bid">
                                                 <p>Current bid</p>
@@ -151,8 +153,7 @@ const AuctionPage = () => {
                                                 <div className="bid-profile-block">
                                                     <img
                                                         src={
-                                                            topAuction?.collectionLogo ||
-                                                            "../../images/profile-img-product.png"
+                                                            topAuction?.collectionLogo
                                                         }
                                                         alt=""
                                                     ></img>
@@ -243,7 +244,17 @@ const AuctionPage = () => {
                     <div className="filter-block-data-block">
                         <div className="filter-block-data-block-left">
                             <div className="filter-block-data-block-left-inner">
-                                <Accordion defaultActiveKey={["0","1","2","3","4","5"]} alwaysOpen>
+                                <Accordion
+                                    defaultActiveKey={[
+                                        "0",
+                                        "1",
+                                        "2",
+                                        "3",
+                                        "4",
+                                        "5",
+                                    ]}
+                                    alwaysOpen
+                                >
                                     <Accordion.Item eventKey="0">
                                         <Accordion.Header>
                                             Search

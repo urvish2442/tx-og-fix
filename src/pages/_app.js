@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { Guard, Layout } from "@/components";
 import { IntercomProvider } from "react-use-intercom";
 import { ThemeProvider } from "next-themes";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import Head from "next/head";
 import App from "next/app";
 import { ChatProvider } from "@/context/ChatContext";
@@ -16,11 +16,27 @@ const WalletProvider = dynamic(() => import("../connection/WalletProvider"), {
 });
 
 function MyApp({ Component, pageProps }) {
+    // useEffect(() => {
+    //     if ("serviceWorker" in navigator) {
+    //         navigator.serviceWorker
+    //             .register("/OneSignalSDKWorker.js")
+    //             .then((registration) => {
+    //                 console.log(
+    //                     "Service Worker registered with scope:",
+    //                     registration.scope
+    //                 );
+    //             })
+    //             .catch((error) => {
+    //                 console.error("Service Worker registration failed:", error);
+    //             });
+    //     }
+    // }, []);
+
     const defaultOgData = {
         title: "TesseractX",
         description:
             "TesseractX is the ultimate rewarding, multi-chain, community-centric digital collectibles marketplace.",
-        imgUrl: `${FRONT_END_DOMAIN}/api/og/general`,
+        imgUrl: `${FRONT_END_DOMAIN}/staticOgImages/GeneralCard.png`,
         url: `${FRONT_END_DOMAIN}`,
     };
 
@@ -30,7 +46,6 @@ function MyApp({ Component, pageProps }) {
         description: ogDescription = defaultOgData.description,
         imgUrl: ogImgUrl = defaultOgData.imgUrl,
     } = pageProps?.ogData || {};
-
     return (
         <>
             {/* {ogData && ( */}
@@ -44,6 +59,7 @@ function MyApp({ Component, pageProps }) {
                     name="viewport"
                     content="width=device-width, initial-scale=1"
                 />
+                <meta content="text/html; charset=UTF-8" name="Content-Type" />
 
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content={ogUrl} />
@@ -83,6 +99,5 @@ MyApp.getInitialProps = async (appContext) => {
     const appProps = await App.getInitialProps(appContext);
     return { ...appProps };
 };
-
 
 export default MyApp;

@@ -171,10 +171,7 @@ const CollectionActivityTab = ({ itemCollection = "", chainId = null }) => {
                                         onClick={() => itemRouteHandler(event)}
                                     >
                                         <ImageLoader
-                                            src={
-                                                event?.image ||
-                                                "../../images/item-img.png"
-                                            }
+                                            src={event?.image}
                                             alt="item-img"
                                             style={{
                                                 width: "60px",

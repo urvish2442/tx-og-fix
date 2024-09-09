@@ -556,15 +556,18 @@ const CreateCollection = () => {
                                                                         onBlur={
                                                                             formik.handleBlur
                                                                         }
-                                                                        value={categorys.find(
-                                                                            (
-                                                                                option
-                                                                            ) =>
-                                                                                option.value ===
-                                                                                formik
-                                                                                    .values
-                                                                                    .category
-                                                                        ) || ""}
+                                                                        value={
+                                                                            categorys.find(
+                                                                                (
+                                                                                    option
+                                                                                ) =>
+                                                                                    option.value ===
+                                                                                    formik
+                                                                                        .values
+                                                                                        .category
+                                                                            ) ||
+                                                                            ""
+                                                                        }
                                                                     />
                                                                     {(formik
                                                                         .touched

@@ -205,7 +205,7 @@ const HistoryTab = () => {
                   <div className='tab-block-right-history-profile-inner' key={index}>
                     <div className='tab-block-right-history-profile-left'>
                       <img
-                        src={event?.itemImage || event?.fromUserlogo || '../../images/profile-img-new.png'}
+                        src={event?.itemImage || event?.fromUserlogo}
                         alt='img'></img>
                       <div className='tab-block-right-history-content-left'>
                         <NewRender event={event} />

@@ -77,7 +77,8 @@ const MainAuction = ({ fetchAuctions }) => {
                 ) : (
                     <div
                         className={`home-slider-main-sub-banner ${
-                            items[currentIndex]?.chainId === 943
+                            items?.length > 0 &&
+                            items[currentIndex]?.chainId === 369
                                 ? "home-slider-main-sub-banner-second"
                                 : ""
                         }`}
