@@ -40,7 +40,10 @@ export default function handler(req) {
         ),
         {
             width: 600,
-            height: 315,
+            height: 300,
+            headers: {
+                'Content-Type': 'image/png',
+            },
         }
     );
 }
