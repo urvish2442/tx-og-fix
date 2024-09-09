@@ -1,15 +1,22 @@
 import TesseractXNFTFactoryABI from "@/abi/TesseractXNFTFactory.json";
 import MarketPlaceV3ABI from "@/abi/MarketPlaceV3.json";
 import AddNFTCollectionABI from "@/abi/AddNFTCollection.json";
-import { base, ethereum } from "thirdweb/chains";
+import {
+    base,
+    baseSepolia,
+    defineChain,
+    ethereum,
+    sepolia,
+} from "thirdweb/chains";
+import { pulsev4 } from "./walletPrefrences";
 import { createWallet, walletConnect } from "thirdweb/wallets";
 import { Chain } from "opensea-js";
-import { pulse } from "./walletPrefrences";
 
 export const MARKETPLACE_CONTRACT_ADDRESS = {
-    369: "0xDAB1d752B521b6A5dE0dF67f078536CCF2953fd3",
-    1: "0xF96D5b6eC2E8B7e89aEC36cdD17AA57b6342f64B",
-    8453: "0xfAF0303DB1ab55EeC275B67E663946efdb0D6Fe3",
+    // 80001: "0x4414151dea20C14C87221e0691514191d00C2149",
+    943: "0xa9E7aD55F33dCa7783637DDB753Dc1B38DA9d3BA",
+    11155111: "0x115f3Ca974bf9E540Be1dE3d28B98164B6F67229",
+    84532: "0x4E480c6359D77FFe881D3d239Eb5F23B5Ce9B44b",
 };
 
 export const ADDRESS_ZERO = "0x0000000000000000000000000000000000000000";
@@ -17,11 +24,12 @@ export const ZERO_TOKEN_ADDRESS = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
 
 export const RPC_URLS = {
     369: "https://rpc.pulsechain.com",
-	1: "https://1.rpc.thirdweb.com/278d8a2ed6aa9f67ac7c1fd654804a9b",
-	8453: "https://8453.rpc.thirdweb.com/278d8a2ed6aa9f67ac7c1fd654804a9b",
+    943: "https://rpc.v4.testnet.pulsechain.com",
+    84532: "https://84532.rpc.thirdweb.com/",
+    11155111:
+        "https://eth-sepolia.g.alchemy.com/v2/mh5xM6YzVSkp2YTkBT6Uc8-DPSXq5-Qb",
+    8453: "https://mainnet.base.org",
 };
-
-//change pulse explorer url
 
 export const NetworkParams = {
     369: {
@@ -33,42 +41,63 @@ export const NetworkParams = {
             decimals: 18,
         },
         rpcUrls: ["https://rpc.pulsechain.com"],
-        blockExplorerUrls: [
-            "https://scan.mypinata.cloud/ipfs/bafybeih3olry3is4e4lzm7rus5l3h6zrphcal5a7ayfkhzm5oivjro2cp4/#/tx/",
-        ],
+        blockExplorerUrls: ["https://scan.pulsechain.com"],
     },
-    1: {
-        chainId: 1,
-        chainName: "Ethereum Mainnet",
+    943: {
+        chainId: 943,
+        chainName: "PulseChain",
         nativeCurrency: {
-            name: "Ethereum Mainnet",
+            name: "PulseChain",
+            symbol: "PLS",
+            decimals: 18,
+        },
+        rpcUrls: ["https://rpc.v4.testnet.pulsechain.com"],
+        blockExplorerUrls: ["https://scan.v4.testnet.pulsechain.com"],
+    },
+    80001: {
+        chainId: 80001,
+        chainName: "mumbai",
+        nativeCurrency: {
+            name: "MATIC",
+            symbol: "MATIC",
+            decimals: 18,
+        },
+        rpcUrls: [
+            "https://polygon-mumbai.g.alchemy.com/v2/e9NgBNkdHIYNo_cLeuiIdkTNMbjXlQSX",
+        ],
+        blockExplorerUrls: ["https://mumbai.polygonscan.com"],
+    },
+    11155111: {
+        chainId: 11155111,
+        chainName: "goerli",
+        nativeCurrency: {
+            name: "ETH",
             symbol: "ETH",
             decimals: 18,
         },
         rpcUrls: [
-            "https://1.rpc.thirdweb.com/278d8a2ed6aa9f67ac7c1fd654804a9b",
+            "https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
         ],
-        blockExplorerUrls: ["https://etherscan.io/tx/"],
+        blockExplorerUrls: ["https://sepolia.etherscan.io"],
     },
-    8453: {
-        chainId: 1,
-        chainName: "Base Mainnet",
+    84532: {
+        chainId: 84532,
+        chainName: "sepolia goerli",
         nativeCurrency: {
-            name: "Base Mainnet",
+            name: "ETH",
             symbol: "ETH",
             decimals: 18,
         },
-        rpcUrls: [
-            "https://8453.rpc.thirdweb.com/278d8a2ed6aa9f67ac7c1fd654804a9b",
-        ],
-        blockExplorerUrls: ["https://basescan.org/tx/"],
+        rpcUrls: ["https://84532.rpc.thirdweb.com/"],
+        blockExplorerUrls: ["https://sepolia.basescan.org/"],
     },
 };
 
 export const BLOCK_EXPLORER_URL = {
-    369: "https://scan.mypinata.cloud/ipfs/bafybeih3olry3is4e4lzm7rus5l3h6zrphcal5a7ayfkhzm5oivjro2cp4/#/address/",
-    1: "https://etherscan.io/address/",
-    8453: "https://basescan.org/address/",
+    943: "https://scan.v4.testnet.pulsechain.com/#",
+    80001: "https://mumbai.polygonscan.com",
+    11155111: "https://sepolia.etherscan.io",
+    84532: "https://sepolia.basescan.org",
 };
 
 // export const pulsechain = {
@@ -107,19 +136,18 @@ export const BLOCK_EXPLORER_URL = {
 
 //
 
-//pending add factory addresses
 export const CONTRACTS_BY_NETWORK = {
     AddNFTCollection: {
-        369: {
-            address: "0x48b3f5Fd5E7a0B30cAB4175BD3dd23a0EA5F988d",
+        943: {
+            address: "0xC0636Cc3032DceC4889439FCe69D9B3af729248E",
             abi: AddNFTCollectionABI,
         },
-        1: {
-            address: "0xBECAB9471926C9527058ca0EDb2F90Df4b095a42",
+        11155111: {
+            address: "0x1d6D014A443a8081C9069Db530d2a53b5bFFe7fd",
             abi: AddNFTCollectionABI,
         },
-        8453: {
-            address: "0x6839bdA6D82E43445B6acc2e4eBaBA25348E7b02",
+        84532: {
+            address: "0xa008c1496A434e957ad535018026952DD0f49AfC",
             abi: AddNFTCollectionABI,
         },
     },
@@ -128,16 +156,16 @@ export const CONTRACTS_BY_NETWORK = {
         // 	address: "0xc94b5121C002A2Cdf438170d5C3faFe7514eEa2f",
         // 	abi: TesseractXNFTFactoryABI,
         // },
-        369: {
-            address: "0xBB57e9CF7F5A81c11a664dEeF8699F37746037d5",
+        943: {
+            address: "0x9B82d53aCe032cB10f85eaf23AA91524DcD7Cb2c",
             abi: TesseractXNFTFactoryABI,
         },
-        1: {
-            address: "0x236535938e8433339629F6D55e16F1EFe94e922f",
+        11155111: {
+            address: "0xea40C39b8dd2f1BA85bd9EF218f180f15199b1a7",
             abi: TesseractXNFTFactoryABI,
         },
-        8453: {
-            address: "0xF86e20479ca8a931c2d600F814d16ec9313431C5",
+        84532: {
+            address: "0x3AE4ECD72E06E6E64Caa65b72d762E82335C305D",
             abi: TesseractXNFTFactoryABI,
         },
     },
@@ -146,16 +174,16 @@ export const CONTRACTS_BY_NETWORK = {
         // 	address: "0x4414151dea20C14C87221e0691514191d00C2149",
         // 	abi: MarketPlaceV3ABI,
         // },
-        369: {
-            address: "0xDAB1d752B521b6A5dE0dF67f078536CCF2953fd3",
+        943: {
+            address: "0xa9E7aD55F33dCa7783637DDB753Dc1B38DA9d3BA",
             abi: MarketPlaceV3ABI,
         },
-        1: {
-            address: "0xF96D5b6eC2E8B7e89aEC36cdD17AA57b6342f64B",
+        11155111: {
+            address: "0x115f3Ca974bf9E540Be1dE3d28B98164B6F67229",
             abi: MarketPlaceV3ABI,
         },
-        8453: {
-            address: "0xfAF0303DB1ab55EeC275B67E663946efdb0D6Fe3",
+        84532: {
+            address: "0x4E480c6359D77FFe881D3d239Eb5F23B5Ce9B44b",
             abi: MarketPlaceV3ABI,
         },
     },
@@ -173,12 +201,12 @@ export const SALE_TYPE = {
 
 export const NATIVE_CURRENCY = {
     // 80001: "MATIC",
-    369: "PLS",
-    1: "ETH",
-    8453: "ETH",
+    943: "PLS",
+    11155111: "ETH",
+    84532: "ETH",
 };
 
-export const CHAIN_ARRAY = [1, 369, 8453, "All"];
+export const CHAIN_ARRAY = [943, 1, 11155111, 84532, "All"];
 
 export const FILTER_OPTIONS = [
     { value: "", label: "All Items" },
@@ -195,34 +223,39 @@ export const ORDER_OPTIONS = [
 
 export const CHAINS = [
     { value: 1, label: "Ethereum (ETH)" },
-    { value: 369, label: "PulseChain (PLS)" },
-    { value: 8453, label: "Base (ETH)" },
+    { value: 943, label: "PulseChain (PLS)" },
+    // { value: 80001, label: "Mumbai (MATIC)" },
+    { value: 11155111, label: "Sepolia (ETH)" },
+    { value: 84532, label: "Base (ETH)" },
 ];
 
 export const CHAIN_LOGO = {
     // 943: "/images/pulsechain-icon.svg",
-    369: "/images/LogoVectorPulseChain.svg",
-    // 1: "/images/ethe-icon-blue.svg",
-    1: "/images/ethereum-icon.svg",
-    8453: "/images/base-icon.svg",
+    943: "/images/LogoVectorPulseChain.svg",
+    1: "/images/ethe-icon-blue.svg",
+    11155111: "/images/ethereum-icon.svg",
+    84532: "/images/base-icon.svg",
 };
 
 export const CHAIN_SYMBOL = {
-    369: "PLS",
+    943: "PLS",
     1: "ETH",
-    8453: "ETH",
+    11155111: "ETH",
+    84532: "ETH",
 };
 
 export const CHAIN_NAME = {
-    369: "PulseChain",
-    8453: "Base",
+    943: "PulseChainV4",
+    11155111: "Sepolia",
+    84532: "Sepolia Goerli",
     1: "Ethereum",
 };
 
 export const GET_CHAIN_NAMES = {
-    369: "PulseChain",
+    943: "PulseChain",
+    11155111: "Sepolia",
+    84532: "Sepolia Goerli",
     1: "Ethereum",
-    8453: "Base",
 };
 
 export const CHAIN_WITH_LOGO = [
@@ -236,18 +269,18 @@ export const CHAIN_WITH_LOGO = [
     {
         name: "PulseChain",
         logo: "/images/LogoVectorPulseChain.svg",
-        chainId: pulse,
+        chainId: pulsev4,
     },
     {
         name: "Ethereum",
         logo: "/images/ethereum-icon.svg",
-        chainId: ethereum,
+        chainId: sepolia,
     },
 
     {
         name: "Base",
         logo: "/images/base-icon.svg",
-        chainId: base,
+        chainId: baseSepolia,
     },
 ];
 
@@ -261,8 +294,8 @@ export const SUPPORTED_FORMATS = [
     "image/jpg",
     "image/jpeg",
     "image/gif",
-    "image/png",
     "image/webp",
+    "image/png",
 ];
 
 export const COLLECTION_DETAILS_FILTER = [
@@ -306,13 +339,12 @@ export const TIME_FILTER_BUTTON = [
 
 export const WALLETNOTIFICATION_ENV = "staging";
 
-//pending change in future
 export const WALLET_NOTIFICATION_CHANNEL = {
     1: "0x085426Ca3958bD760F4817f7cF139Ce0CbB9F7AF",
     11155111: "0x085426Ca3958bD760F4817f7cF139Ce0CbB9F7AF",
 };
 
-export const MEMBERSHIP_SUPPORTED_CHAINS = [8453];
+export const MEMBERSHIP_SUPPORTED_CHAINS = [1, 11155111];
 
 export const SUBSCRIPTION = {
     TERA: "TERA",
@@ -325,25 +357,17 @@ export const MEMBERSHIP = {
     LIFETIME: "LIFETIME",
 };
 
-// TERA 1 Month 0xaff66a2277a6d74b657ead552e335da6f69ffcee
-// TERA 12 Month 0xe2bf3884D83F925E8741963585d4b516f16c85C6
-// TERA Lifetime 0x9442E65a2B7520C78492f8DC901C0B0c02D58A62
-
-// YOTTA 1 Month 0x9b8341abe9112a435fd0bca2451d9fe122a6c8f7
-// YOTTA 12 Month 0x4966251fbe0ff843de34ef7cf8f1067dc942eab6
-// YOTTA Lifetime 0x3aef23687ca6e7cbd98c573f05d28b709135892a
-
 export const MEMBERSHIP_CONTRACTS_ADDRESSES = {
-    8453: {
+    11155111: {
         [SUBSCRIPTION.TERA]: {
-            [MEMBERSHIP.MONTH]: "0xaff66a2277a6d74b657ead552e335da6f69ffcee",
-            [MEMBERSHIP.YEAR]: "0xe2bf3884D83F925E8741963585d4b516f16c85C6",
-            [MEMBERSHIP.LIFETIME]: "0x9442E65a2B7520C78492f8DC901C0B0c02D58A62",
+            [MEMBERSHIP.MONTH]: "0xc48feab2a4dccd2733a60f7070c3fd0680ff4124",
+            [MEMBERSHIP.YEAR]: "0x73660c229f792588fb000a57029600fab8975950",
+            [MEMBERSHIP.LIFETIME]: "0xed9118ca3cfbfa14113fb0ffc8e54dd5bb7bc63c",
         },
         [SUBSCRIPTION.YOTA]: {
-            [MEMBERSHIP.MONTH]: "0x9b8341abe9112a435fd0bca2451d9fe122a6c8f7",
-            [MEMBERSHIP.YEAR]: "0x4966251fbe0ff843de34ef7cf8f1067dc942eab6",
-            [MEMBERSHIP.LIFETIME]: "0x3aef23687ca6e7cbd98c573f05d28b709135892a",
+            [MEMBERSHIP.MONTH]: "0x4e90cfd3a69c8da72fe2ae8142c800c620d0cee0",
+            [MEMBERSHIP.YEAR]: "0x1a27e3b5176963fa17d5bb64a04e2b01d9807f8b",
+            [MEMBERSHIP.LIFETIME]: "0xbff7ccfd49714a43e75632cacaef49357bd736cf",
         },
     },
 };
@@ -387,8 +411,10 @@ export const FAL_IMAGES_DIMENTIONS = [
     },
 ];
 
-export const FRONT_END_DOMAIN = "https://tesseractx.com";
+export const FRONT_END_DOMAIN = "https://tx-og-fix.vercel.app"
 // export const FRONT_END_DOMAIN = "https://dev.tesseractx.com";
+
+// export const FRONT_END_DOMAIN = "http://127.0.0.1:3000"
 
 export const coinbase = createWallet("com.coinbase.wallet");
 
@@ -402,12 +428,16 @@ export const wallets = [
     createWallet("io.rabby"),
 ];
 
+
 //opensea
-export const OPENSEA_API_URL = "https://api.opensea.io";
+export const OPENSEA_API_URL = 'https://testnets-api.opensea.io'
+
 
 export const OPENSEA_CHAINS = {
-    1: Chain.Mainnet,
-    8453: Chain.Base,
-};
+    1:        Chain.Mainnet,
+    11155111: Chain.Sepolia,
+    84532:    Chain.BaseSepolia,
+    8453:     Chain.Base
+}
 
 export const OPENSEA_LISTING_FEE = 2.5;
