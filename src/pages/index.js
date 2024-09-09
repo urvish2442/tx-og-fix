@@ -1,5 +1,5 @@
 import HomeMainComponent from "@/components/Home/HomeMainComponent/HomeMainComponent";
-import { FRONT_END_DOMAIN } from "@/constant";
+import { FRONT_END_DOMAIN } from "@/constant/ogConstant";
 import React from "react";
 
 export async function getServerSideProps(context) {

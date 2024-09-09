@@ -1,7 +1,7 @@
 import { PublicProfile } from "@/components/PublicProfile/PublicProfileProvider";
 import PublicProfileComponent from "@/components/PublicProfile/PublicProfileComponent";
 import { getOwnerDetailsService } from "@/redux/services/globalServices";
-import { FRONT_END_DOMAIN } from "@/constant";
+import { FRONT_END_DOMAIN } from "@/constant/ogConstant";
 
 export async function getServerSideProps(context) {
     const { userAddress } = context.params;

@@ -1,5 +1,5 @@
 import ItemDetailComponent from "@/components/ItemDetails/ItemDetailComponent";
-import { FRONT_END_DOMAIN } from "@/constant";
+import { FRONT_END_DOMAIN } from "@/constant/ogConstant";
 import { GetNftDetailsService } from "@/redux/services/itemServices";
 import React from "react";
 
