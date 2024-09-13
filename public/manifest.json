@@ -7,7 +7,7 @@
   "scope": "https://tesseractx.com/",
   "short_name": "TesseractX",
   "start_url": "https://tesseractx.com/",
-  "theme_color": "#ffffff",
+  "theme_color": "#fb4ef1",
   "icons": [
     {
       "src": "612.png",
